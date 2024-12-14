@@ -44,27 +44,15 @@ export default function App() {
     <div className="flex items-center justify-center flex-col gap-6 h-screen bg-[url(https://good-news-generator.vonbrank.com/assets/good_news-9ae8ee92.jpg)] bg-no-repeat bg-center text-red-600">
       <span className="text-5xl">距离春节还有</span>
       <span className="font-bold pb-8 flex">
-        {remain.days > 0 && (
-          <>
-            <NumberDisplay number={getFirstDigit(remain.days)} />
-            <NumberDisplay number={getSecondDigit(remain.days)} />
-            <span className="text-4xl font-normal">天</span>
-          </>
-        )}
-        {remain.hours > 0 && (
-          <>
-            <NumberDisplay number={getFirstDigit(remain.hours)} />
-            <NumberDisplay number={getSecondDigit(remain.hours)} />
-            <span className="text-4xl font-normal">时</span>
-          </>
-        )}
-        {remain.minutes > 0 && (
-          <>
-            <NumberDisplay number={getFirstDigit(remain.minutes)} />
-            <NumberDisplay number={getSecondDigit(remain.minutes)} />
-            <span className="text-4xl font-normal">分</span>
-          </>
-        )}
+        <NumberDisplay number={getFirstDigit(remain.days)} />
+        <NumberDisplay number={getSecondDigit(remain.days)} />
+        <span className="text-4xl font-normal">天</span>
+        <NumberDisplay number={getFirstDigit(remain.hours)} />
+        <NumberDisplay number={getSecondDigit(remain.hours)} />
+        <span className="text-4xl font-normal">时</span>
+        <NumberDisplay number={getFirstDigit(remain.minutes)} />
+        <NumberDisplay number={getSecondDigit(remain.minutes)} />
+        <span className="text-4xl font-normal">分</span>
         <NumberDisplay number={getFirstDigit(remain.seconds)} />
         <NumberDisplay number={getSecondDigit(remain.seconds)} />
         <span className="text-4xl font-normal">秒</span>
