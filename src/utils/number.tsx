@@ -1,15 +1,6 @@
-export function getFirstDigit(num: number): number {
-  if (num < 10) return 0;
-  return Math.floor(
-    Math.abs(num) / 10 ** Math.floor(Math.log10(Math.abs(num)))
-  );
-}
-
-export function getSecondDigit(num: number): number {
-  if (num < 10) return num;
-  return (
-    Math.floor(
-      Math.abs(num) / 10 ** (Math.floor(Math.log10(Math.abs(num))) - 1)
-    ) % 10
-  );
+export function getDigit(num: number, length: number, index: number): number {
+  // 把num变成长度为length的字符串，不足位数在前面补0
+  const str = num.toString().padStart(length, "0");
+  // 获取指定位置的数字
+  return parseInt(str[index]);
 }
