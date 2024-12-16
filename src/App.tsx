@@ -41,7 +41,7 @@ export default function App() {
         <span className="text-4xl font-normal">天</span>
         <NumberDisplayWrapper number={remain.hours} length={2} />
         <span className="text-4xl font-normal">时</span>
-        <NumberDisplayWrapper number={remain.hours} length={2} />
+        <NumberDisplayWrapper number={remain.minutes} length={2} />
         <span className="text-4xl font-normal">分</span>
         <NumberDisplayWrapper number={remain.seconds} length={2} />
         <span className="text-4xl font-normal">秒</span>
