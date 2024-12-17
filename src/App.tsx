@@ -18,28 +18,28 @@ export default function App() {
   // 现在的时间戳
   const now = useNow();
   // 距离春节还有多少时间
-  const remain = useMemo(
-    () =>
-      parseTime(
-        new Date(
-          targetYear,
-          targetMonth - 1,
-          targetDay,
-          targetHour,
-          targetMinute,
-          targetSecond
-        ).getTime() - now
-      ),
-    [
-      now,
-      targetDay,
-      targetHour,
-      targetMinute,
-      targetMonth,
-      targetSecond,
-      targetYear,
-    ]
-  );
+  const remain = useMemo(() => {
+    const remainMs =
+      new Date(
+        targetYear,
+        targetMonth - 1,
+        targetDay,
+        targetHour,
+        targetMinute,
+        targetSecond
+      ).getTime() - now;
+    return remainMs > 0
+      ? parseTime(remainMs)
+      : { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }, [
+    now,
+    targetDay,
+    targetHour,
+    targetMinute,
+    targetMonth,
+    targetSecond,
+    targetYear,
+  ]);
 
   return (
     <div
