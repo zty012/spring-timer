@@ -9,6 +9,9 @@ export default function App() {
   const [targetYear, setTargetYear] = useState(springFestival.year);
   const [targetMonth, setTargetMonth] = useState(springFestival.month);
   const [targetDay, setTargetDay] = useState(springFestival.day);
+  const [targetHour, setTargetHour] = useState(0);
+  const [targetMinute, setTargetMinute] = useState(0);
+  const [targetSecond, setTargetSecond] = useState(0);
   const [targetName, setTargetName] = useState("春节");
   const [bgType, setBgType] = useState("xibao");
 
@@ -18,10 +21,24 @@ export default function App() {
   const remain = useMemo(
     () =>
       parseTime(
-        new Date(targetYear, targetMonth - 1, targetDay, 0, 0, 0).getTime() -
-          now
+        new Date(
+          targetYear,
+          targetMonth - 1,
+          targetDay,
+          targetHour,
+          targetMinute,
+          targetSecond
+        ).getTime() - now
       ),
-    [now, targetDay, targetMonth, targetYear]
+    [
+      now,
+      targetDay,
+      targetHour,
+      targetMinute,
+      targetMonth,
+      targetSecond,
+      targetYear,
+    ]
   );
 
   return (
@@ -67,6 +84,22 @@ export default function App() {
           type="number"
           value={targetDay}
           onChange={(e) => setTargetDay(Number(e.target.value))}
+        />
+        <span>target time</span>
+        <input
+          type="number"
+          value={targetHour}
+          onChange={(e) => setTargetHour(Number(e.target.value))}
+        />
+        <input
+          type="number"
+          value={targetMinute}
+          onChange={(e) => setTargetMinute(Number(e.target.value))}
+        />
+        <input
+          type="number"
+          value={targetSecond}
+          onChange={(e) => setTargetSecond(Number(e.target.value))}
         />
         <span>目标名称</span>
         <input
